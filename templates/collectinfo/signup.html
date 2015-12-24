@@ -1,0 +1,19 @@
+{% extends 'collectinfo/base.html' %}
+
+{% load staticfiles %}
+
+{% block body_block %}
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h4>注册</h4>
+          <form method="post" class="form-inline" role="form" action="{% url 'signup' %}">
+            {% csrf_token %}
+            {{ user_form.as_p }}
+            {{ profile_form.as_p }}
+            <button type="submit" class="btn btn-default">注册</button>
+          </form>
+        </div><!-- /.col-md-12 -->
+      </div><!-- /.row -->
+    </div><!-- /.container -->
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'collectinfo/base.html' %}
+
+{% load staticfiles %}
+
+{% block body_block %}
+    <h1>现在就开始制作精美的表单</h1>
+    <a class="btn btn-primary" href="{% url 'signup' %}">立即注册</a><br />
+    <a class="btn btn-primary" href="{% url 'signin' %}">马上登录</a>
+{% endblock %}

@@ -3,5 +3,12 @@
 {% load staticfiles %}
 
 {% block body_block %}
-    
+     <form method="post" class="form-inline" role="form" action="{% url 'signin' %}">
+            {% csrf_token %}
+            <input placeholder="输入用户名" class="form-control flat" type="text" name="username" value="" size="50" />
+            <br />
+            <input placeholder="输入密码" class="form-control flat" type="password" name="password" value="" size="50" />
+            <br />
+            <button type="submit" class="btn btn-primary btn-hg">登录</button>
+          </form>
 {% endblock %}

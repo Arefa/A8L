@@ -49,7 +49,8 @@ def signin(request):
         if user:
             if user.is_active:
                 login(request, user)
-                return HttpResponseRedirect('/collectinfo/')
+                # return render(request, 'collectinfo/home.html', {})
+                return HttpResponseRedirect('/collectinfo/home/')
             else:
                 return HttpResponse('该账户未激活!')
         else:
@@ -65,5 +66,6 @@ def signout(request):
     return HttpResponseRedirect('/collectinfo/')
 
 
+@login_required
 def home(request):
-    pass
+    return render(request, 'collectinfo/home.html', {})

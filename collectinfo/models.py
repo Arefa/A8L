@@ -1,3 +1,4 @@
+# -*-coding: utf-8 -*-
 from __future__ import unicode_literals
 
 from django.db import models
@@ -11,5 +12,14 @@ class UserProfile(models.Model):
 
     def __unicode__(self):
         return self.user.username
+
+
+class Form(models.Model):
+
+    form_name = models.CharField(max_length=128, default='未命名表单')
+
+
+
+
 
 

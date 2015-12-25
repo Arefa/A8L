@@ -4,33 +4,83 @@
 
 {% block body_block %}
     {% if user.is_authenticated %}
-    <nav class="navbar navbar-default" role="navigation">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
-      <span class="sr-only">Toggle navigation</span>
-    </button>
-    <a class="navbar-brand" href="{% url 'home' %}">2012DT</a>
-  </div>
-  <div class="collapse navbar-collapse" id="navbar-collapse-01">
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#fakelink">Products</a></li>
-      <li><a href="#fakelink">Features</a></li>
-    </ul>
-    <form class="navbar-form navbar-right" action="#" role="search">
-      <div class="form-group">
-        <div class="input-group">
-          <input class="form-control" id="navbarInput-01" type="search" placeholder="Search">
-          <span class="input-group-btn">
-            <button type="submit" class="btn"><span class="fui-search"></span></button>
-          </span>
+        <nav class="navbar navbar-inverse" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+                    <span class="sr-only">Toggle navigation</span>
+                </button>
+                <a class="navbar-brand" href="{% url 'home' %}">2012DT</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse-01">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">
+                            我创建的
+                            <!-- Indicator with number -->
+                            <span class="navbar-new">2</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            我协同创建的
+                            <!-- Indicator with number -->
+                            <span class="navbar-new">2</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            我填写的
+                            <!-- Indicator with number -->
+                            <span class="navbar-new">100</span>
+                        </a>
+                    </li>
+                </ul>
+                <p class="navbar-text navbar-right">欢迎您， <a class="navbar-link" href="#"><strong>
+                    {{ user.first_name }}{{ user.last_name }}</strong></a> | <a class="navbar-link"
+                                                                                href="{% url 'signout' %}">退出</a></p>
+                <form class="navbar-form navbar-right" action="#" role="search">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input class="form-control" id="navbarInput-01" type="search" placeholder="搜索">
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn"><span class="fui-search"></span></button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+
+            </div><!-- /.navbar-collapse -->
+        </nav><!-- /navbar -->
+
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>表单名</th>
+                    <th>归属</th>
+                    <th>上次修改时间</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>1</th>
+                    <td>未命名表单</td>
+                    <td>我创建的</td>
+                    <td>2015年12月15日</td>
+                    <td><a href="#">编辑</a> | <a href="#">删除</a> </td>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <td>未命名表单</td>
+                    <td>我填写的</td>
+                    <td>下午3：30</td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
-      </div>
-    </form>
-  </div><!-- /.navbar-collapse -->
-</nav><!-- /navbar -->
-    <div class="page-header">
-        <h1>欢迎您， {{ user.first_name }}{{ user.last_name }}!</h1>
-        <a class="btn btn-primary btn-" href="{% url 'signout' %}">退出</a>
     {% else %}
         <h1>需登录才能访问此资源！</h1>
     {% endif %}

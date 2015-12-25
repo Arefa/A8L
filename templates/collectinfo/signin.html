@@ -3,7 +3,7 @@
 {% load staticfiles %}
 
 {% block body_block %}
-     <form method="post" class="form-inline" role="form" action="{% url 'signin' %}">
+     <form method="post" class="form-horizontal" role="form" action="{% url 'signin' %}">
             {% csrf_token %}
             <input placeholder="输入用户名" class="form-control flat" type="text" name="username" value="" size="50" />
             <br />

@@ -15,8 +15,21 @@ class UserProfile(models.Model):
 
 
 class Form(models.Model):
-
+    form_id = models.UUIDField()
     form_name = models.CharField(max_length=128, default='未命名表单')
+    create_time = models.DateTimeField()
+    edit_time = models.DateTimeField()
+    create_person = models.ForeignKey(User)
+    cooperation = models.BinaryField(default=0)
+    # cooperate_person = models.ForeignKey(User)
+    fill_mode = models.BinaryField(default=0)
+    # fill_person = models.ForeignKey(User)
+
+    def __unicode__(self):
+        return self.form_name
+
+
+
 
 
 
